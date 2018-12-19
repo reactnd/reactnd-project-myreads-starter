@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 // import * as BooksAPI from './BooksAPI'
-import './App.css'
-import SearchBooks from './components/SearchBooks/SearchBooks'
-import ListBooks from './components/ListBooks/ListBooks'
+import './App.css';
+import SearchBooks from './components/SearchBooks/SearchBooks';
+import ListBooks from './components/ListBooks/ListBooks';
 
 class BooksApp extends React.Component {
   state = {
@@ -13,13 +13,13 @@ class BooksApp extends React.Component {
      * pages, as well as provide a good URL they can bookmark and share.
      */
     showSearchPage: false
-  }
+  };
 
   onNavigation = () => {
     this.setState({
       showSearchPage: !this.state.showSearchPage
-    })
-  }
+    });
+  };
 
   render() {
     return (
@@ -30,8 +30,8 @@ class BooksApp extends React.Component {
           <ListBooks onNavigation={this.onNavigation} />
         )}
       </div>
-    )
+    );
   }
 }
 
-export default BooksApp
+export default BooksApp;
