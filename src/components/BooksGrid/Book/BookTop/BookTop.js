@@ -6,7 +6,7 @@ export default class BookTop extends Component {
   render() {
     return (
       <div className="book-top">
-      <BookCover />
+      <BookCover bookThumbnailURL={this.props.bookThumbnailURL}/>
       <BookShelfChanger />
     </div>
     )

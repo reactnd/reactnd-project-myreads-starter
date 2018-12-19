@@ -2,13 +2,42 @@ import React, { Component } from 'react';
 import Book from './Book/Book'
 
 export default class BooksGrid extends Component {
+
+state = {
+  books: [0],
+  books2: []
+}
+
+componentWillReceiveProps = (props) => {
+  let booktmp = []
+  for (let book in props.books) {
+    booktmp.push(props.books[book])
+  }
+  this.setState(()=> ({
+    books: props.books,
+    books2: booktmp
+  }))
+
+}
+
+
+
+
   render() {
+
+
     return (
       <ol className="books-grid">
-        <li>
-          <Book />
-         
-        </li>
+{this.state.books2.map((book, index) => (
+<li key={index}>
+<Book book={book} /> 
+</li>
+
+))}
+
+
+        
+
       </ol>
     );
   }

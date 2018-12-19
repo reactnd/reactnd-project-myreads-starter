@@ -4,11 +4,24 @@ import BookAuthors from './BookAuthors'
 import BookTop from './BookTop/BookTop'
 
 export default class Book extends Component {
+
+  state = {
+    bookTitle: ''
+  }
+  
+  componentWillReceiveProps = (props) => {
+    this.setState(()=> ({
+      bookTitle: props.book.title
+    }))
+  
+  }
+
+
   render() {
     return (
       <div className="book">
-        <BookTop />
-        <BookTitle />
+        <BookTop bookThumbnailURL={this.props.book.imageLinks.thumbnail}/>
+        <BookTitle bookTitle={this.props.book.title}/>
         <BookAuthors />
       </div>
     );
