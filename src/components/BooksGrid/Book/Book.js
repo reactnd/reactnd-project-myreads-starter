@@ -20,7 +20,7 @@ export default class Book extends Component {
   render() {
     return (
       <div className="book">
-        <BookTop bookThumbnailURL={this.props.book.imageLinks.thumbnail}/>
+        <BookTop bookThumbnailURL={this.props.book.imageLinks.smallThumbnail}/>
         <BookTitle bookTitle={this.props.book.title}/>
         <BookAuthors />
       </div>
