@@ -8,8 +8,8 @@ export default class BookShelf extends PureComponent {
     return (
       <div>
         <div className="bookshelf">
-          <BookShelfTitle />
-          <BookShelfBooks />
+          <BookShelfTitle shelveTitle={this.props.shelveTitle}/>
+          <BookShelfBooks shelveBooks={this.props.shelveBooks} onHandleShelfChange={this.props.onHandleShelfChange}/>
         </div>
       </div>
     );

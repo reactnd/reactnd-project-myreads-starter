@@ -1,27 +1,16 @@
 import React, { Component } from 'react';
-import BookTitle from './BookTitle'
-import BookAuthors from './BookAuthors'
-import BookTop from './BookTop/BookTop'
+import BookTitle from './BookTitle';
+import BookAuthors from './BookAuthors';
+import BookTop from './BookTop/BookTop';
 
 export default class Book extends Component {
-
-  state = {
-    bookTitle: ''
-  }
-  
-  componentWillReceiveProps = (props) => {
-    this.setState(()=> ({
-      bookTitle: props.book.title
-    }))
-  
-  }
-
-
   render() {
     return (
       <div className="book">
-        <BookTop bookThumbnailURL={this.props.book.imageLinks.smallThumbnail}/>
-        <BookTitle bookTitle={this.props.book.title}/>
+        <BookTop book={this.props.book}
+        bookThumbnailURL={this.props.book.imageLinks.smallThumbnail}
+        onHandleShelfChange={this.props.onHandleShelfChange} />
+        <BookTitle bookTitle={this.props.book.title} />
         <BookAuthors />
       </div>
     );
