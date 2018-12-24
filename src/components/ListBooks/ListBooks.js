@@ -9,7 +9,7 @@ export default class ListBooks extends Component {
       <div className="list-books">
         <ListBooksTitle />
         <ListBooksContent libraryBooks={this.props.libraryBooks} onHandleShelfChange={this.props.onHandleShelfChange}/>
-        <OpenSearch onNavigation={this.props.onNavigation} />
+        <OpenSearch />
       </div>
     );
   }

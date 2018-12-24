@@ -10,8 +10,9 @@ state = {
   searchQuery: '',
 }
 
-componentDidMount() {
-  BooksAPI.getAll().then(searchBooks => {
+updateSearchResults = query => {
+  const maxResults = 5;
+  BooksAPI.search(query, maxResults).then(searchBooks => {
     this.setState(() => ({
       searchBooks
     }));
@@ -22,13 +23,14 @@ updateQuery = query => {
   this.setState(() => ({
     searchQuery: query.trim()
   }))
+  this.updateSearchResults(this.state.searchQuery)
 }
 
   render() {
     return (
       <div className="search-books">
-      <SearchBooksBar updateQuery={this.updateQuery} onNavigation={this.props.onNavigation}/>
-      <SearchBooksResults searchBooks={this.state.searchBooks}/>
+      <SearchBooksBar updateQuery={this.updateQuery} />
+      <SearchBooksResults searchBooks={this.state.searchBooks} onHandleShelfChange={this.props.onHandleShelfChange}/>
     </div>
     )
   }

@@ -4,15 +4,15 @@ import React, { Component } from 'react';
 export default class BookCover extends Component {
 
 
-  getImageHeight = (url) => {
-    const image = new Image();
-    image.src = url;
-    return image.naturalHeight
-  }
+  // getImageHeight = (url) => {
+  //   const image = new Image();
+  //   image.src = url;
+  //   return image.naturalHeight
+  // }
 
   render() {
     const bookThumbnailURL = this.props.bookThumbnailURL;
-    const getImageHeight = this.getImageHeight
+    //const getImageHeight = this.getImageHeight
 
     return (
       
@@ -20,7 +20,7 @@ export default class BookCover extends Component {
         className="book-cover"
         style={{
           width: 128,
-          height: getImageHeight(bookThumbnailURL),
+          height: 190, //getImageHeight(bookThumbnailURL),
           maxHeight: 200,
           backgroundImage: `url("${bookThumbnailURL}")`,
           backgroundSize: "contain",

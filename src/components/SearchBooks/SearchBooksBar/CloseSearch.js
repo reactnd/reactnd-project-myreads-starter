@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 
 export default class CloseSearch extends Component {
   render() {
     return (
-      <a className="close-search" onClick={this.props.onNavigation}>Close</a>
+      <Link to='/' className="close-search" >Close</Link>
     )
   }
 }

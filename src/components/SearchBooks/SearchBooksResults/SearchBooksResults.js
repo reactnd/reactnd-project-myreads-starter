@@ -8,8 +8,7 @@ export default class SearchBooksResults extends Component {
 
     return (
       <div className="search-books-results">
-      {console.log(`test: ${this.props.searchBooks}`) }
-        <BooksGrid books={this.props.searchBooks}/>
+        <BooksGrid books={this.props.searchBooks} onHandleShelfChange={this.props.onHandleShelfChange}/>
       </div>
     );
   }
