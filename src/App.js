@@ -45,11 +45,6 @@ class BooksApp extends React.Component {
     BooksAPI.update(book, shelf);
   };
 
-  onNavigation = () => {
-    this.setState({
-      showSearchPage: !this.state.showSearchPage
-    });
-  };
 
   render() {
     return (

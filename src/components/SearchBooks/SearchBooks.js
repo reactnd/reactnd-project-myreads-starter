@@ -11,12 +11,11 @@ state = {
 }
 
 updateSearchResults = query => {
-  const maxResults = 5;
-  BooksAPI.search(query, maxResults).then(searchBooks => {
+  BooksAPI.search(query).then(searchBooks => {
     this.setState(() => ({
       searchBooks
     }));
-  });
+  }).catch(err => console.error('Caught error: ', err));
 }
 
 updateQuery = query => {
