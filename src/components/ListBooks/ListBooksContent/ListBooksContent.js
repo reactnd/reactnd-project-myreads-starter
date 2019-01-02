@@ -23,6 +23,21 @@ componentWillReceiveProps = (props) => {
   })
 }
 
+componentDidMount = () => {
+  this.setState({
+    currentlyReading: this.props.libraryBooks.filter(book => {
+      return book.shelf === "currentlyReading"
+    }),
+    wantToRead: this.props.libraryBooks.filter(book => {
+      return book.shelf === "wantToRead"
+    }),
+    read: this.props.libraryBooks.filter(book => {
+      return book.shelf === "read"
+    }),
+  })
+}
+
+
   render() {
     return (
       <div className="list-books-content">
