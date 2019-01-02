@@ -7,7 +7,6 @@ export default class SearchBooks extends Component {
 
 state = {
   searchBooks: [],
-  searchQuery: '',
 }
 
 updateSearchResults = query => {
@@ -18,17 +17,10 @@ updateSearchResults = query => {
   }).catch(err => console.error('Caught error: ', err));
 }
 
-updateQuery = query => {
-  this.setState(() => ({
-    searchQuery: query.trim()
-  }))
-  this.updateSearchResults(this.state.searchQuery)
-}
-
   render() {
     return (
       <div className="search-books">
-      <SearchBooksBar updateQuery={this.updateQuery} />
+      <SearchBooksBar updateSearchResults={this.updateSearchResults}/>
       <SearchBooksResults searchBooks={this.state.searchBooks} onHandleShelfChange={this.props.onHandleShelfChange}/>
     </div>
     )

@@ -20,7 +20,6 @@ export default class BookCover extends Component {
 
   render() {
     const bookThumbnailURL = this.props.bookThumbnailURL;
-    const getImageHeight = this.getImageHeight
     const imageDimensions = this.getImageDimensions(bookThumbnailURL)
 
     return (
