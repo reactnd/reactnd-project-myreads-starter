@@ -5,12 +5,14 @@ import * as BooksAPI from '../../BooksAPI';
 
 export default class SearchBooks extends Component {
   state = {
-    searchBooks: []
+    searchBooks: [],
+    noResult: false
   };
 
   updateSearchResults = query => {
-    BooksAPI.search(query)
-      .then(searchBooks => {
+    this.setState({ searchBooks: [] });
+    BooksAPI.search(query).then(
+      searchBooks => {
         searchBooks.forEach(element => {
           element.shelf = 'none';
           this.props.libraryBooks.map(lb => {
@@ -20,10 +22,17 @@ export default class SearchBooks extends Component {
           });
         });
         this.setState(() => ({
-          searchBooks
+          searchBooks,
+          noResult: false
         }));
-      })
-      .catch(err => console.error('Caught error: ', err));
+      },
+      error => {
+        this.setState(() => ({
+          noResult: true
+        }));
+      }
+    );
+    // .catch(err => console.error('Caught error: ', err));
   };
 
   render() {

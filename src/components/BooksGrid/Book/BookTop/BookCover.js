@@ -25,9 +25,9 @@ export default class BookCover extends Component {
         className="book-cover"
         style={{
           //width: 128,
-          width: imageDimensions[0] > 0 ? imageDimensions[0] : '128',
+          width: imageDimensions[0] > 0 ? imageDimensions[0] : '128px',
           //height: 190,
-          height: imageDimensions[1] > 0 ? imageDimensions[1] : '190',
+          height: imageDimensions[1] > 0 ? imageDimensions[1] : '190px',
           maxHeight: 200,
           backgroundImage: `url("${bookThumbnailURL}")`,
           backgroundSize: 'contain',

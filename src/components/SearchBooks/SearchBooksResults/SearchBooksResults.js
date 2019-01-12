@@ -3,12 +3,18 @@ import BooksGrid from '../../BooksGrid/BooksGrid';
 
 export default class SearchBooksResults extends Component {
   render() {
-
-
+    /* Test works but no books are diplayed */
+    const { searchBooks } = this.props;
+    let tempArr = searchBooks;
+    let testResults = !Array.isArray(tempArr) || !tempArr.length;
 
     return (
       <div className="search-books-results">
-        <BooksGrid books={this.props.searchBooks} onHandleShelfChange={this.props.onHandleShelfChange}/>
+        <BooksGrid
+          books={searchBooks}
+          onHandleShelfChange={this.props.onHandleShelfChange}
+        />
+        {testResults && <p>No results, please enter a valid search</p>}
       </div>
     );
   }
