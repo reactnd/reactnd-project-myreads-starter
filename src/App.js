@@ -8,7 +8,6 @@ import { Route } from 'react-router-dom';
 
 class BooksApp extends React.Component {
   state = {
-
     libraryBooks: []
   };
 
@@ -45,7 +44,6 @@ class BooksApp extends React.Component {
     BooksAPI.update(book, shelf);
   };
 
-
   render() {
     return (
       <div className="app">
@@ -64,6 +62,7 @@ class BooksApp extends React.Component {
           path="/search"
           render={() => (
             <SearchBooks
+              libraryBooks={this.state.libraryBooks}
               onHandleShelfChange={this.onHandleShelfChange}
             />
           )}
