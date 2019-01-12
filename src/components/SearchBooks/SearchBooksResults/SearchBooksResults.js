@@ -3,7 +3,6 @@ import BooksGrid from '../../BooksGrid/BooksGrid';
 
 export default class SearchBooksResults extends Component {
   render() {
-    /* Test works but no books are diplayed */
     const { searchBooks } = this.props;
     let tempArr = searchBooks;
     let testResults = !Array.isArray(tempArr) || !tempArr.length;
